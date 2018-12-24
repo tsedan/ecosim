@@ -3,7 +3,7 @@
 Communism Simulator is a simple seeming game in which you control a town.
 
 I would usually now proceed to tell you the mechanics, but
-**This game is meant to be played without knowledge of the mechanics.**
+**this game is meant to be played without knowledge of the mechanics.**
 
 However, since you asked so nicely, I'll inform you of this:
 The win condition is met when you have 3000 rubles in you wallet.
