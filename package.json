@@ -22,9 +22,14 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "description": "A pretty rough proof of concept of a communism simulator game.",
+  "homepage": "http://coloringnuns.github.io/commsim",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "main": "index.js",
-  "devDependencies": {},
-  "author": "",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  },
+  "author": "Tomer Sedan",
   "license": "ISC"
 }
