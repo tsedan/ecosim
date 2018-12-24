@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/commsim/static/css/main.7c44ad77.chunk.css"
   },
   {
-    "revision": "df3282df185d23d652db294eee9e4609",
+    "revision": "944548a3e11f574bfd32ad701848a5fc",
     "url": "/commsim/index.html"
   }
 ];
