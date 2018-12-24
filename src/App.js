@@ -35,6 +35,10 @@ const quotes = [
   "When you chop wood, splinters fly."
 ];
 
+//If you don't want spoilers, don't read further.
+//The game is meant to be played without knowledge of mechanics.
+//Don't ruin it for yourself. :)
+
 class App extends Component {
   state = {
     log : [],
