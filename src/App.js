@@ -100,9 +100,6 @@ class App extends Component {
 
   main = () => {
     var mainState = this.clone(this.state);
-    mainState.vault += Math.floor(mainState.population * 2.1 * (mainState.unity + 5) / 100)
-
-    this.setState({ vault : mainState.vault });
 
     if (mainState.quarter % 3 === 0) {
       this.saveToLog("The army has arrived!", "blue");
@@ -190,9 +187,13 @@ class App extends Component {
         mainState.wallet = mainState.wallet + 400;
         this.setState({ wallet : mainState.wallet });
       }
-    } //SOMETHING IS FISHY. I SEEM TO BE GOING DOWN IN VAULT VALUE APPROXIMATELY EVERY TIME STALIN ARRIVES...
+    }
 
-    this.saveToLog(Math.floor((mainState.population * 2.1 * (mainState.unity + 5)) / 100) + " newly taxed rubles adorn the floor of your vault.", "green");
+    mainState.vault += Math.floor(mainState.population * 1.95 * (mainState.unity + 5) / 100)
+
+    this.setState({ vault : mainState.vault });
+
+    this.saveToLog(Math.floor((mainState.population * 1.95 * (mainState.unity + 5)) / 100) + " newly taxed rubles adorn the floor of your vault.", "green");
 
     if (mainState.wallet >= 10) {
       mainState.wallet -= 10;
@@ -285,7 +286,7 @@ class App extends Component {
         this.saveToLog("Your town's population decreased by a good (or bad, depends) amount.", "red");
       }
 
-      this.askToLog("How many rubles to take for yourself? ", "blue", [0,10,30,50,100,110,200,400,650], (RublesTake) => {
+      this.askToLog("How many rubles to take for yourself? ", "blue", [0,10,30,50,100,110,200,400,500,750], (RublesTake) => {
         if (RublesTake > 0 && RublesTake <= mainState.vault) {
           if (RublesTake > 600) {
             this.saveToLog("You cannot take over 600 rubles at once.");
