@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/commsim/static/js/runtime~main.c570df8d.js"
   },
   {
-    "revision": "152d710cc21f1e50f795",
-    "url": "/commsim/static/js/main.152d710c.chunk.js"
+    "revision": "0248f7853adb3440af4e",
+    "url": "/commsim/static/js/main.0248f785.chunk.js"
   },
   {
     "revision": "4a34e45d34cafb7623bd",
     "url": "/commsim/static/js/1.4a34e45d.chunk.js"
   },
   {
-    "revision": "152d710cc21f1e50f795",
+    "revision": "0248f7853adb3440af4e",
     "url": "/commsim/static/css/main.7c44ad77.chunk.css"
   },
   {
-    "revision": "a474d1b5145dffa45ca7fb972a57a3e6",
+    "revision": "e7cdfc34c245358b5acda3b9817591fa",
     "url": "/commsim/index.html"
   }
 ];
