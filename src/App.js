@@ -286,12 +286,8 @@ class App extends Component {
         this.saveToLog("Your town's population decreased by a good (or bad, depends) amount.", "red");
       }
 
-      this.askToLog("How many rubles to take for yourself? ", "blue", [0,10,30,50,100,110,200,400,500,750], (RublesTake) => {
+      this.askToLog("How many rubles to take for yourself? ", "blue", [0,10,50,100,400,500,600], (RublesTake) => {
         if (RublesTake > 0 && RublesTake <= mainState.vault) {
-          if (RublesTake > 600) {
-            this.saveToLog("You cannot take over 600 rubles at once.");
-            RublesTake = 600;
-          }
           mainState.vault -= RublesTake;
           mainState.wallet += RublesTake;
           this.setState({ vault : mainState.vault });
