@@ -51,12 +51,6 @@ class App extends Component {
 
   componentDidMount() {
     this.main();
-
-    //MOST BUGS IN THIS GAME HAVE BEEN DEALT WITH. HERE ARE SOME ADDITIONAL FEATURES TO CONSIDER:
-    //1. Scrolling.
-    //2. Balancing changes.
-    //3. General code compaction.
-    //4. Scores!
   }
 
   render() {
@@ -429,6 +423,13 @@ class App extends Component {
   }
 
   printLog = () => {
+    //const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    // var smallScreen = false;
+    //
+    // if (w < 1040) {
+    //   smallScreen = true;
+    // }
+
     const data = this.clone(this.state.log);
     const finalObjects = [];
 
