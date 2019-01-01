@@ -1,14 +1,14 @@
 {
-  "main.css": "/commsim/static/css/main.5bcb6adf.chunk.css",
-  "main.js": "/commsim/static/js/main.f7265bce.chunk.js",
-  "main.js.map": "/commsim/static/js/main.f7265bce.chunk.js.map",
+  "main.css": "/commsim/static/css/main.72059a6a.chunk.css",
+  "main.js": "/commsim/static/js/main.ce64d0b8.chunk.js",
+  "main.js.map": "/commsim/static/js/main.ce64d0b8.chunk.js.map",
   "static/js/1.4a34e45d.chunk.js": "/commsim/static/js/1.4a34e45d.chunk.js",
   "static/js/1.4a34e45d.chunk.js.map": "/commsim/static/js/1.4a34e45d.chunk.js.map",
   "runtime~main.js": "/commsim/static/js/runtime~main.c570df8d.js",
   "runtime~main.js.map": "/commsim/static/js/runtime~main.c570df8d.js.map",
-  "static/css/main.5bcb6adf.chunk.css.map": "/commsim/static/css/main.5bcb6adf.chunk.css.map",
+  "static/css/main.72059a6a.chunk.css.map": "/commsim/static/css/main.72059a6a.chunk.css.map",
   "static/media/index.css": "/commsim/static/media/Inconsolata.29b00ebc.ttf",
   "index.html": "/commsim/index.html",
-  "precache-manifest.8387576b7165079c5935c25252bd7e6c.js": "/commsim/precache-manifest.8387576b7165079c5935c25252bd7e6c.js",
+  "precache-manifest.273e8795f3813c3c2653e5315b0396dc.js": "/commsim/precache-manifest.273e8795f3813c3c2653e5315b0396dc.js",
   "service-worker.js": "/commsim/service-worker.js"
 }
