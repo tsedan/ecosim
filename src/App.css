@@ -53,22 +53,47 @@ html, body {
   right: 0px;
 }
 
+.MobBtnDiv {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+td {
+  text-align: center;
+  vertical-align: top;
+  height: 60px;
+  margin-top: 5px;
+}
+
+td .btn {
+  display: inline;
+  float: none !important;
+}
+
 .NormPrint {
   margin: 0;
+  padding: 0;
   margin-top: 4px;
   padding-top: 4px;
   margin-bottom: 1px;
-  margin-left: 5px;
+  margin-left: 0px;
   font-size: 18px;
+  word-wrap: break-word;
 }
 
 .LastPrint {
   margin: 0;
+  padding: 0;
   margin-top: 4px;
   padding-top: 4px;
   margin-bottom: 1px;
-  margin-left: 5px;
+  margin-left: 0px;
   font-size: 22px;
+  word-wrap: break-word;
 }
 
 /* Question Styles */
@@ -76,8 +101,8 @@ html, body {
   width: 100%;
 
   padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 0.75vw;
+  padding-right: 0.75vw;
 }
 
 .lightBack {

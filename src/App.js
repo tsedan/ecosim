@@ -204,7 +204,7 @@ class App extends Component {
       mainState.vault = Math.floor(mainState.vault);
       this.setState({ vault : mainState.vault });
 
-      this.saveToLog("Distributed a total of " + Math.floor(WagePP * mainState.population) + " to the town (" + WagePP + " rubles per, to " + mainState.population + " people).");
+      this.saveToLog("Distributed a total of " + Math.floor(WagePP * mainState.population) + " to the town.");
 
       if (WagePP === 0) {
         const msg = Math.round(Math.random() * 3);
@@ -280,7 +280,7 @@ class App extends Component {
         this.saveToLog("Your town's population decreased by a good (or bad, depends) amount.", "red");
       }
 
-      this.askToLog("How many rubles to take for yourself? ", "blue", [0,10,50,100,400,500,600], (RublesTake) => {
+      this.askToLog("How many do you take for yourself? ", "blue", [0,10,50,100,400,600], (RublesTake) => {
         if (RublesTake > 0 && RublesTake <= mainState.vault) {
           mainState.vault -= RublesTake;
           mainState.wallet += RublesTake;
@@ -423,53 +423,120 @@ class App extends Component {
   }
 
   printLog = () => {
-    //const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    // var smallScreen = false;
-    //
-    // if (w < 1040) {
-    //   smallScreen = true;
-    // }
-
+    const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     const data = this.clone(this.state.log);
     const finalObjects = [];
 
-    for (var i = 0; i < data.length; i++) {
-      if (i === data.length - 1) {
-        data[i][1] = "LastPrint " + data[i][1];
-      } else {
-        data[i][1] = "NormPrint " + data[i][1];
-      }
+    if (w < 1040) {
+      //TODO: Draw everything as normal.
+      //Then, at the bottom, instead of having buttons within a line,
+      //Create a 2 by 3 table that will hold each button.
 
-      let divClass = "FullWidthDiv";
-      if (i % 2 === 0) {
-        divClass = divClass + " lightBack";
-      }
+      for (let i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+          data[i][1] = "LastPrint " + data[i][1];
+        } else {
+          data[i][1] = "NormPrint " + data[i][1];
+        }
 
-      if (data[i][2] === undefined) {
-        finalObjects[i] = (
-          <div className={divClass} key={i}>
-            <p className={data[i][1]}>{data[i][0]}</p>
-          </div>
-        );
-      } else {
-        if (data[i][4] === undefined) {
+        let divClass = "FullWidthDiv";
+        if (i % 2 === 0) {
+          divClass = divClass + " lightBack";
+        }
+
+        if (data[i][2] === undefined) {
           finalObjects[i] = (
             <div className={divClass} key={i}>
               <p className={data[i][1]}>{data[i][0]}</p>
-              <div className="ButtonDiv">
-                {this.getOptions(data[i][2])}
-              </div>
             </div>
           );
         } else {
+          if (data[i][4] === undefined) {
+            if (data[i][2].length > 3) {
+              finalObjects[i] = (
+                <React.Fragment>
+                  <div className={divClass} key={i}>
+                    <p className={data[i][1]}>{data[i][0]}</p>
+                  </div>
+                  <div className="MobBtnDiv">
+                    <table>
+                      <tr>
+                        {this.getMobOptions(data[i][2].splice(0,3))}
+                      </tr>
+                      <tr>
+                        {this.getMobOptions(data[i][2])}
+                      </tr>
+                    </table>
+                  </div>
+                </React.Fragment>
+              );
+            } else {
+              finalObjects[i] = (
+                <React.Fragment>
+                  <div className={divClass} key={i}>
+                    <p className={data[i][1]}>{data[i][0]}</p>
+                  </div>
+                  <div className="MobBtnDiv">
+                    <table>
+                      <tr>
+                        {this.getMobOptions(data[i][2])}
+                      </tr>
+                    </table>
+                  </div>
+                </React.Fragment>
+              );
+            }
+          } else {
+            finalObjects[i] = (
+              <div className={divClass} key={i}>
+                <p className={data[i][1]}>{data[i][0]}</p>
+                <div className="ButtonDiv">
+                  <p className="ButtonChosen">{data[i][4]}</p>
+                </div>
+              </div>
+            );
+          }
+        }
+      }
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+          data[i][1] = "LastPrint " + data[i][1];
+        } else {
+          data[i][1] = "NormPrint " + data[i][1];
+        }
+
+        let divClass = "FullWidthDiv";
+        if (i % 2 === 0) {
+          divClass = divClass + " lightBack";
+        }
+
+        if (data[i][2] === undefined) {
           finalObjects[i] = (
             <div className={divClass} key={i}>
               <p className={data[i][1]}>{data[i][0]}</p>
-              <div className="ButtonDiv">
-                <p className="ButtonChosen">{data[i][4]}</p>
-              </div>
             </div>
           );
+        } else {
+          if (data[i][4] === undefined) {
+            finalObjects[i] = (
+              <div className={divClass} key={i}>
+                <p className={data[i][1]}>{data[i][0]}</p>
+                <div className="ButtonDiv">
+                  {this.getOptions(data[i][2])}
+                </div>
+              </div>
+            );
+          } else {
+            finalObjects[i] = (
+              <div className={divClass} key={i}>
+                <p className={data[i][1]}>{data[i][0]}</p>
+                <div className="ButtonDiv">
+                  <p className="ButtonChosen">{data[i][4]}</p>
+                </div>
+              </div>
+            );
+          }
         }
       }
     }
@@ -483,6 +550,18 @@ class App extends Component {
     for (var i = 0; i < options.length; i++) {
       optionsMapped[i] = (
         <button className="btn" onClick={this.optionChosen} key={i} value={i}>{String(options[i])}</button>
+      );
+    }
+
+    return <React.Fragment>{optionsMapped}</React.Fragment>;
+  }
+
+  getMobOptions(options) {
+    const optionsMapped = [];
+
+    for (var i = 0; i < options.length; i++) {
+      optionsMapped[i] = (
+        <td><button className="btn" onClick={this.optionChosen} key={i} value={i}>{String(options[i])}</button></td>
       );
     }
 
