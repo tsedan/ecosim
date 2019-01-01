@@ -460,12 +460,7 @@ class App extends Component {
                   </div>
                   <div className="MobBtnDiv">
                     <table>
-                      <tr>
-                        {this.getMobOptions(data[i][2].splice(0,3))}
-                      </tr>
-                      <tr>
-                        {this.getMobOptions(data[i][2])}
-                      </tr>
+                      {this.getLargeMobOptions(data[i][2])}
                     </table>
                   </div>
                 </React.Fragment>
@@ -566,6 +561,18 @@ class App extends Component {
     }
 
     return <React.Fragment>{optionsMapped}</React.Fragment>;
+  }
+
+  getLargeMobOptions(options) {
+    const optionsMapped = [];
+
+    for (var i = 0; i < options.length; i++) {
+      optionsMapped[i] = (
+        <td><button className="btn" onClick={this.optionChosen} key={i} value={i}>{String(options[i])}</button></td>
+      );
+    }
+
+    return <React.Fragment><tr>{optionsMapped.splice(0,3)}</tr><tr>{optionsMapped}</tr></React.Fragment>;
   }
 
   optionChosen = (option) => {
