@@ -25,7 +25,7 @@
     "not op_mini all"
   ],
   "description": "A pretty rough proof of concept of a communism simulator game.",
-  "homepage": "http://commsim.nuns.cf/",
+  "homepage": "https://sordamente.github.io/commsim",
   "main": "index.js",
   "devDependencies": {
     "gh-pages": "^2.0.1"
