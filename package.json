@@ -28,7 +28,7 @@
   "homepage": "https://sordamente.github.io/commsim",
   "main": "index.js",
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^5.0.0"
   },
   "author": "Tomer Sedan",
   "license": "ISC"
